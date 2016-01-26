@@ -7,13 +7,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.ViewGroup;
 
-import com.moon.apf.Components.DefaultViewInterface;
+import com.moon.apf.Components.DefaultComponentInterface;
 import com.moon.apf.R;
 
 /**
  * Created by moon on 2016. 1. 26..
  */
-public class BaseToolbar implements BaseToolbarInterface, DefaultViewInterface {
+public class BaseToolbar implements BaseToolbarInterface, DefaultComponentInterface {
 
     public Context mContext;
 

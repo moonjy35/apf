@@ -5,9 +5,9 @@ import android.content.Context;
 /**
  * Created by moon on 2016. 1. 26..
  */
-public class DefaultWebView extends BaseWebView {
+public class DefaultWebComponent extends BaseWebComponent {
 
-    public DefaultWebView(Context context, String url){
+    public DefaultWebComponent(Context context, String url){
         super(context, url);
     }
 }

@@ -6,9 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
-import com.moon.apf.Components.HasChildableViewInterface;
-import com.moon.apf.Components.DefaultViewInterface;
-import com.moon.apf.R;
+import com.moon.apf.Components.HasChildableComponentInterface;
+import com.moon.apf.Components.DefaultComponentInterface;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -16,15 +15,15 @@ import java.util.Iterator;
 /**
  * Created by moon on 2016. 1. 26..
  */
-public class BaseRelativeView implements BaseRelativeViewInterface, HasChildableViewInterface, DefaultViewInterface {
+public class BaseRelativeComponent implements BaseRelativeViewInterface, HasChildableComponentInterface, DefaultComponentInterface {
 
     public Context mContext;
-    public ArrayList<DefaultViewInterface> mViews = new ArrayList<>();
+    public ArrayList<DefaultComponentInterface> mViews = new ArrayList<>();
 
     public RelativeLayout mView;
     public RelativeLayout.LayoutParams mParams;
 
-    public BaseRelativeView(Context context){
+    public BaseRelativeComponent(Context context){
         mContext = context;
         mView = new RelativeLayout(mContext);
         mParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
@@ -36,7 +35,7 @@ public class BaseRelativeView implements BaseRelativeViewInterface, HasChildable
     }
 
     @Override
-    public DefaultViewInterface addView(DefaultViewInterface view) {
+    public DefaultComponentInterface addView(DefaultComponentInterface view) {
         mViews.add(view);
         return this;
     }
@@ -47,7 +46,7 @@ public class BaseRelativeView implements BaseRelativeViewInterface, HasChildable
         mView.setBackgroundColor(Color.WHITE);
 
         if(!mViews.isEmpty()){
-            Iterator<DefaultViewInterface> pageViews = mViews.iterator();
+            Iterator<DefaultComponentInterface> pageViews = mViews.iterator();
             while(pageViews.hasNext()){
                 View view = pageViews.next().getView();
                 mView.addView(view);

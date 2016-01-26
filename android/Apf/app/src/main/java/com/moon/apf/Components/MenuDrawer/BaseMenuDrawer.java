@@ -1,16 +1,12 @@
 package com.moon.apf.Components.MenuDrawer;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.support.v4.widget.DrawerLayout;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 
-import com.moon.apf.Components.DefaultViewInterface;
-import com.moon.apf.Components.HasChildableViewInterface;
+import com.moon.apf.Components.DefaultComponentInterface;
+import com.moon.apf.Components.HasChildableComponentInterface;
 import com.moon.apf.R;
 
 import java.util.ArrayList;
@@ -19,10 +15,10 @@ import java.util.Iterator;
 /**
  * Created by moon on 2016. 1. 26..
  */
-public class BaseMenuDrawer implements BaseMenuDrawerInterface, DefaultViewInterface, HasChildableViewInterface{
+public class BaseMenuDrawer implements BaseMenuDrawerInterface, DefaultComponentInterface, HasChildableComponentInterface {
 
     public Context mContext;
-    public ArrayList<DefaultViewInterface> mViews = new ArrayList<>();
+    public ArrayList<DefaultComponentInterface> mViews = new ArrayList<>();
 
     public DrawerLayout mView;
     public DrawerLayout.LayoutParams mParams;
@@ -36,19 +32,19 @@ public class BaseMenuDrawer implements BaseMenuDrawerInterface, DefaultViewInter
     }
 
     @Override
-    public DefaultViewInterface addView(DefaultViewInterface view) {
+    public DefaultComponentInterface addView(DefaultComponentInterface view) {
         mViews.add(view);
         return this;
     }
 
     @Override
-    public DefaultViewInterface addContentView(DefaultViewInterface view) {
+    public DefaultComponentInterface addContentView(DefaultComponentInterface view) {
         mViews.add(view);
         return this;
     }
 
     @Override
-    public DefaultViewInterface addDrawerView(DefaultViewInterface view) {
+    public DefaultComponentInterface addDrawerView(DefaultComponentInterface view) {
         mViews.add(view);
         return this;
     }
@@ -58,7 +54,7 @@ public class BaseMenuDrawer implements BaseMenuDrawerInterface, DefaultViewInter
         mView.setLayoutParams(mParams);
 
         if(!mViews.isEmpty()){
-            Iterator<DefaultViewInterface> views = mViews.iterator();
+            Iterator<DefaultComponentInterface> views = mViews.iterator();
             while(views.hasNext()){
                 View view = views.next().getView();
                 mView.addView(view);

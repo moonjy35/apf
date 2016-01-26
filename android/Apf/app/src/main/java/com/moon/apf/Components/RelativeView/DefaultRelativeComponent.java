@@ -5,9 +5,9 @@ import android.content.Context;
 /**
  * Created by moon on 2016. 1. 26..
  */
-public class DefaultRelativeView extends BaseRelativeView {
+public class DefaultRelativeComponent extends BaseRelativeComponent {
 
-    public DefaultRelativeView(Context context){
+    public DefaultRelativeComponent(Context context){
         super(context);
     }
 }

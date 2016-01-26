@@ -5,18 +5,18 @@ import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-import com.moon.apf.Components.DefaultViewInterface;
+import com.moon.apf.Components.DefaultComponentInterface;
 
 /**
  * Created by moon on 2016. 1. 26..
  */
-public class BaseWebView implements BaseWebViewInterface, DefaultViewInterface {
+public class BaseWebComponent implements BaseWebViewInterface, DefaultComponentInterface {
 
     public Context mContext;
     public WebView mWebView;
     public String mUrl;
 
-    public BaseWebView(Context context, String url){
+    public BaseWebComponent(Context context, String url){
         mContext = context;
         mUrl = url;
         mWebView = new WebView(mContext);

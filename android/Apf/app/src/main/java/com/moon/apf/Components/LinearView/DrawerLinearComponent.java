@@ -5,9 +5,13 @@ import android.content.Context;
 /**
  * Created by moon on 2016. 1. 26..
  */
-public class DefaultLinearView extends BaseLinearView {
+public class DrawerLinearComponent extends BaseLinearComponent {
 
-    public DefaultLinearView(Context context, int orientation){
+    public DrawerLinearComponent(Context context, int orientation) {
+
         super(context, orientation);
+
+
+
     }
 }

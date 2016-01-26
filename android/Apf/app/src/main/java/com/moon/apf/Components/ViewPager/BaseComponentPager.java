@@ -5,8 +5,8 @@ import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.moon.apf.Components.DefaultViewInterface;
-import com.moon.apf.Components.HasChildableViewInterface;
+import com.moon.apf.Components.DefaultComponentInterface;
+import com.moon.apf.Components.HasChildableComponentInterface;
 import com.moon.apf.R;
 
 import java.util.ArrayList;
@@ -15,15 +15,15 @@ import java.util.Iterator;
 /**
  * Created by moon on 2016. 1. 26..
  */
-public class BaseViewPager implements BaseViewPagerInterface, HasChildableViewInterface, DefaultViewInterface {
+public class BaseComponentPager implements BaseViewPagerInterface, HasChildableComponentInterface, DefaultComponentInterface {
 
     public Context mContext;
-    public ArrayList<DefaultViewInterface> mViews = new ArrayList<>();
+    public ArrayList<DefaultComponentInterface> mViews = new ArrayList<>();
 
     public ViewPager mView;
     public ViewGroup.LayoutParams mParams;
 
-    public BaseViewPager(Context context){
+    public BaseComponentPager(Context context){
         mContext = context;
         mView = new ViewPager(mContext);
         mView.setId(R.id.id_viewpager);
@@ -36,7 +36,7 @@ public class BaseViewPager implements BaseViewPagerInterface, HasChildableViewIn
     }
 
     @Override
-    public DefaultViewInterface addView(DefaultViewInterface view) {
+    public DefaultComponentInterface addView(DefaultComponentInterface view) {
         mViews.add(view);
 
         return this;
@@ -45,7 +45,7 @@ public class BaseViewPager implements BaseViewPagerInterface, HasChildableViewIn
     @Override
     public ViewPager getView() {
         if(!mViews.isEmpty()){
-            Iterator<DefaultViewInterface> views = mViews.iterator();
+            Iterator<DefaultComponentInterface> views = mViews.iterator();
             while(views.hasNext()){
                 View view = views.next().getView();
                 mView.addView(view);
