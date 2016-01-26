@@ -19,7 +19,7 @@ import java.util.Iterator;
 public class BaseRelativeView implements BaseRelativeViewInterface, HasChildableViewInterface, DefaultViewInterface {
 
     public Context mContext;
-    public ArrayList<DefaultViewInterface> mViews;
+    public ArrayList<DefaultViewInterface> mViews = new ArrayList<>();
 
     public RelativeLayout mView;
     public RelativeLayout.LayoutParams mParams;
@@ -37,9 +37,6 @@ public class BaseRelativeView implements BaseRelativeViewInterface, HasChildable
 
     @Override
     public DefaultViewInterface addView(DefaultViewInterface view) {
-        if(mViews == null){
-            mViews = new ArrayList<>();
-        }
 
         mViews.add(view);
 
@@ -51,10 +48,12 @@ public class BaseRelativeView implements BaseRelativeViewInterface, HasChildable
         mView.setLayoutParams(mParams);
         mView.setBackgroundColor(Color.WHITE);
 
-        Iterator<DefaultViewInterface> pageViews = mViews.iterator();
-        while(pageViews.hasNext()){
-            View view = pageViews.next().getView();
-            mView.addView(view);
+        if(!mViews.isEmpty()){
+            Iterator<DefaultViewInterface> pageViews = mViews.iterator();
+            while(pageViews.hasNext()){
+                View view = pageViews.next().getView();
+                mView.addView(view);
+            }
         }
 
         return mView;

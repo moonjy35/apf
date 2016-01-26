@@ -16,6 +16,7 @@ public class BaseViewPagerAdapter extends PagerAdapter {
 
     public BaseViewPagerAdapter(ViewPager pager){
         mPager = pager;
+        mPager.setOffscreenPageLimit(mPager.getChildCount());
     }
 
     public Object instantiateItem(ViewGroup collection, int position) {
@@ -26,7 +27,12 @@ public class BaseViewPagerAdapter extends PagerAdapter {
 
     @Override
     public int getCount() {
-        return 2;
+        return mPager.getChildCount();
+    }
+
+    @Override
+    public void destroyItem(ViewGroup container, int position, Object object) {
+
     }
 
     @Override
