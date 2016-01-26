@@ -24,6 +24,7 @@ public class ViewPagerActivity extends BaseActivity {
 
     public BaseViewPager mBaseViewPager;
 
+    //TODO 나중에 동적으로 추가하면 됨
     public BaseRelativeView mContent1;
     public BaseWebView mContentWebview1;
     public BaseRelativeView mContent2;

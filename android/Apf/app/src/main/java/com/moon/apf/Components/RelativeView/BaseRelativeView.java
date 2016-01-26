@@ -37,9 +37,7 @@ public class BaseRelativeView implements BaseRelativeViewInterface, HasChildable
 
     @Override
     public DefaultViewInterface addView(DefaultViewInterface view) {
-
         mViews.add(view);
-
         return this;
     }
 

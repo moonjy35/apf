@@ -1,9 +1,11 @@
-package com.moon.apf.Components.ViewPager;
+package com.moon.apf.Components.LinearView;
 
 import android.content.Context;
-import android.support.v4.view.ViewPager;
+import android.graphics.Color;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import com.moon.apf.Components.DefaultViewInterface;
 import com.moon.apf.Components.HasChildableViewInterface;
@@ -15,43 +17,37 @@ import java.util.Iterator;
 /**
  * Created by moon on 2016. 1. 26..
  */
-public class BaseViewPager implements BaseViewPagerInterface, HasChildableViewInterface, DefaultViewInterface {
+public class BaseLinearView implements DefaultViewInterface, HasChildableViewInterface{
 
     public Context mContext;
     public ArrayList<DefaultViewInterface> mViews = new ArrayList<>();
 
-    public ViewPager mView;
-    public ViewGroup.LayoutParams mParams;
+    public LinearLayout mView;
+    public LinearLayout.LayoutParams mParams;
 
-    public BaseViewPager(Context context){
+    public BaseLinearView(Context context){
         mContext = context;
-        mView = new ViewPager(mContext);
-        mView.setId(R.id.id_viewpager);
-        mParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
-    }
-
-    @Override
-    public void setPagerAdapter(BaseViewPagerAdapter adapter) {
-        mView.setAdapter(adapter);
+        mView = new LinearLayout(mContext);
+        mParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
     }
 
     @Override
     public DefaultViewInterface addView(DefaultViewInterface view) {
         mViews.add(view);
-
         return this;
     }
 
     @Override
-    public ViewPager getView() {
+    public View getView() {
+        mView.setLayoutParams(mParams);
+        mView.setBackgroundColor(Color.WHITE);
+
         if(!mViews.isEmpty()){
             Iterator<DefaultViewInterface> views = mViews.iterator();
             while(views.hasNext()){
                 View view = views.next().getView();
                 mView.addView(view);
             }
-
-            this.setPagerAdapter(new BaseViewPagerAdapter(mView));
         }
 
         return mView;
