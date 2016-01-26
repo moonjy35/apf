@@ -1,31 +1,32 @@
-package com.moon.apf.Activity;
+package com.moon.apf.Components.Activity;
 
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.webkit.WebView;
 import android.widget.RelativeLayout;
 
-import com.moon.apf.Ui.ContentView.BaseContentView;
-import com.moon.apf.Ui.ContentView.DefaultContentView;
-import com.moon.apf.Ui.Toolbar.BaseToolbar;
-import com.moon.apf.Ui.Toolbar.DefaultToolbar;
-import com.moon.apf.Ui.WebView.BaseWebView;
-import com.moon.apf.Ui.WebView.DefaultWebView;
+import com.moon.apf.Components.RelativeView.BaseRelativeView;
+import com.moon.apf.Components.RelativeView.DefaultRelativeView;
+import com.moon.apf.Components.Toolbar.BaseToolbar;
+import com.moon.apf.Components.Toolbar.DefaultToolbar;
+import com.moon.apf.Components.WebView.BaseWebView;
+import com.moon.apf.Components.WebView.DefaultWebView;
 
 /**
  * Created by moon on 2016. 1. 26..
  */
 public class DefaultActivity extends BaseActivity {
-    public BaseContentView mLayout;
+
+    public BaseRelativeView mLayout;
     public BaseToolbar mToolbar;
-    public BaseContentView mContent;
+    public BaseRelativeView mContent;
     public BaseWebView mWebview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mLayout = new DefaultContentView(this);
+        mLayout = new DefaultRelativeView(this);
         mToolbar = new DefaultToolbar(this);
 
         RelativeLayout mLayoutView = mLayout.getView();
@@ -33,7 +34,7 @@ public class DefaultActivity extends BaseActivity {
         mToolbar.setAsToolbar();
         mToolbar.setTitle("yo!");
 
-        mContent = new DefaultContentView(this);
+        mContent = new DefaultRelativeView(this);
         mContent.setBelow(mToolbar.getToolbarId());
 
         mWebview = new DefaultWebView(this, "http://www.naver.com");

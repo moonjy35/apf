@@ -1,7 +1,6 @@
-package com.moon.apf.Ui.WebView;
+package com.moon.apf.Components.WebView;
 
 import android.content.Context;
-import android.webkit.WebView;
 
 /**
  * Created by moon on 2016. 1. 26..

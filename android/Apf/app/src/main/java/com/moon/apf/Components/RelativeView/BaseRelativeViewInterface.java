@@ -1,11 +1,11 @@
-package com.moon.apf.Ui.ContentView;
+package com.moon.apf.Components.RelativeView;
 
 import android.widget.RelativeLayout;
 
 /**
  * Created by moon on 2016. 1. 26..
  */
-public interface BaseContentViewInterface {
+public interface BaseRelativeViewInterface {
     void setBelow(int target);
     RelativeLayout getView();
 
