@@ -6,7 +6,7 @@ import com.moon.apf.Components.Activity.DefaultActivity;
 import com.moon.apf.Components.Activity.ViewPagerActivity;
 
 
-public class MainActivity extends ViewPagerActivity {
+public class MainActivity extends DefaultActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

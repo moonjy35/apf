@@ -9,17 +9,17 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.moon.apf.Components.ChildViewInterface;
-import com.moon.apf.Components.ParentViewInterface;
+import com.moon.apf.Components.DefaultViewInterface;
+import com.moon.apf.Components.HasChildableViewInterface;
 
 import java.util.ArrayList;
 
 /**
  * Created by moon on 2016. 1. 26..
  */
-public class NavigationToolbar extends BaseToolbar implements ParentViewInterface{
+public class NavigationToolbar extends BaseToolbar implements HasChildableViewInterface {
 
-    public ArrayList<ChildViewInterface> mViews;
+    public ArrayList<DefaultViewInterface> mViews;
 
     public NavigationToolbar(Context context){
         super(context);
@@ -31,12 +31,14 @@ public class NavigationToolbar extends BaseToolbar implements ParentViewInterfac
     }
 
     @Override
-    public void addView(ChildViewInterface view) {
+    public DefaultViewInterface addView(DefaultViewInterface view) {
         if(mViews != null){
             mViews = new ArrayList<>();
         }
 
         mViews.add(view);
+
+        return this;
     }
 
     @Override

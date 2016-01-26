@@ -7,7 +7,8 @@ import android.content.Context;
  */
 public class DefaultToolbar extends BaseToolbar {
 
-    public DefaultToolbar(Context context){
+    public DefaultToolbar(Context context, String title){
         super(context);
+        setTitle(title);
     }
 }

@@ -8,9 +8,6 @@ import android.support.v7.widget.Toolbar;
 public interface BaseToolbarInterface {
     int getToolbarId();
 
-    void setAsToolbar();
     void setTitle(String title);
     void setToolbarColor(int color);
-
-
 }

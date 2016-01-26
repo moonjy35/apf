@@ -6,8 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
-import com.moon.apf.Components.ChildViewInterface;
-import com.moon.apf.Components.ParentViewInterface;
+import com.moon.apf.Components.HasChildableViewInterface;
 import com.moon.apf.Components.DefaultViewInterface;
 import com.moon.apf.R;
 
@@ -17,10 +16,10 @@ import java.util.Iterator;
 /**
  * Created by moon on 2016. 1. 26..
  */
-public class BaseRelativeView implements BaseRelativeViewInterface, ParentViewInterface, DefaultViewInterface {
+public class BaseRelativeView implements BaseRelativeViewInterface, HasChildableViewInterface, DefaultViewInterface {
 
     public Context mContext;
-    public ArrayList<ChildViewInterface> mViews;
+    public ArrayList<DefaultViewInterface> mViews;
 
     public RelativeLayout mView;
     public RelativeLayout.LayoutParams mParams;
@@ -37,12 +36,14 @@ public class BaseRelativeView implements BaseRelativeViewInterface, ParentViewIn
     }
 
     @Override
-    public void addView(ChildViewInterface view) {
-        if(mViews != null){
+    public DefaultViewInterface addView(DefaultViewInterface view) {
+        if(mViews == null){
             mViews = new ArrayList<>();
         }
 
         mViews.add(view);
+
+        return this;
     }
 
     @Override
@@ -50,7 +51,7 @@ public class BaseRelativeView implements BaseRelativeViewInterface, ParentViewIn
         mView.setLayoutParams(mParams);
         mView.setBackgroundColor(Color.WHITE);
 
-        Iterator<ChildViewInterface> pageViews = mViews.iterator();
+        Iterator<DefaultViewInterface> pageViews = mViews.iterator();
         while(pageViews.hasNext()){
             View view = pageViews.next().getView();
             mView.addView(view);

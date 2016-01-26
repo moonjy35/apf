@@ -42,9 +42,7 @@ public class ViewPagerActivity extends BaseActivity {
 
         RelativeLayout layout = mLayout.getView();
 
-        mToolbar = new DefaultToolbar(this);
-        mToolbar.setAsToolbar();
-        mToolbar.setTitle("VIEW PAGER");
+        mToolbar = new DefaultToolbar(this, "VIEW PAGER");
         Toolbar toolbar = mToolbar.getView();
 
         layout.addView(toolbar);

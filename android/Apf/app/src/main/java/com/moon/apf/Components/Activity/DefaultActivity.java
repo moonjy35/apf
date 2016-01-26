@@ -1,9 +1,6 @@
 package com.moon.apf.Components.Activity;
 
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
-import android.webkit.WebView;
-import android.widget.RelativeLayout;
 
 import com.moon.apf.Components.RelativeView.BaseRelativeView;
 import com.moon.apf.Components.RelativeView.DefaultRelativeView;
@@ -27,28 +24,17 @@ public class DefaultActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
 
         mLayout = new DefaultRelativeView(this);
-        mToolbar = new DefaultToolbar(this);
 
-        RelativeLayout mLayoutView = mLayout.getView();
-
-        mToolbar.setAsToolbar();
-        mToolbar.setTitle("yo!");
+        mToolbar = new DefaultToolbar(this, "애드투페이퍼");
 
         mContent = new DefaultRelativeView(this);
         mContent.setBelow(mToolbar.getToolbarId());
 
         mWebview = new DefaultWebView(this, "http://www.naver.com");
 
-        WebView webView = mWebview.getView();
+        mLayout.addView(mToolbar);
+        mLayout.addView(mContent.addView(mWebview));
 
-        Toolbar mToolbarView = mToolbar.getView();
-
-        RelativeLayout mContentView = mContent.getView();
-        mContentView.addView(webView);
-
-        mLayoutView.addView(mToolbarView);
-        mLayoutView.addView(mContentView);
-
-        setContentView(mLayoutView);
+        setContentView(mLayout.getView());
     }
 }
