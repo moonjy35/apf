@@ -5,10 +5,12 @@ import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import com.moon.apf.Components.DefaultViewInterface;
+
 /**
  * Created by moon on 2016. 1. 26..
  */
-public class BaseWebView implements BaseWebViewInterface {
+public class BaseWebView implements BaseWebViewInterface, DefaultViewInterface {
 
     public Context mContext;
     public WebView mWebView;

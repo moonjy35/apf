@@ -8,15 +8,16 @@ import android.support.v7.widget.Toolbar;
 import android.view.ViewGroup;
 
 import com.moon.apf.Components.ChildViewInterface;
-import com.moon.apf.Components.ParentViewInterface;
+import com.moon.apf.Components.DefaultViewInterface;
 import com.moon.apf.R;
 
 /**
  * Created by moon on 2016. 1. 26..
  */
-public class BaseToolbar implements BaseToolbarInterface, ParentViewInterface {
+public class BaseToolbar implements BaseToolbarInterface, ChildViewInterface, DefaultViewInterface {
 
     public Context mContext;
+
     public Toolbar mView;
 
     private Toolbar.LayoutParams mParmas;
@@ -43,11 +44,6 @@ public class BaseToolbar implements BaseToolbarInterface, ParentViewInterface {
     @Override
     public void setToolbarColor(int color) {
         mView.setBackgroundColor(color);
-    }
-
-    @Override
-    public void addView(ChildViewInterface view) {
-        
     }
 
     @Override

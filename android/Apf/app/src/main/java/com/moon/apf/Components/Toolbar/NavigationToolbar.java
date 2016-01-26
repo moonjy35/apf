@@ -9,17 +9,21 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.moon.apf.Components.ChildViewInterface;
+import com.moon.apf.Components.ParentViewInterface;
+
+import java.util.ArrayList;
+
 /**
  * Created by moon on 2016. 1. 26..
  */
-public class NavigationToolbar extends BaseToolbar{
+public class NavigationToolbar extends BaseToolbar implements ParentViewInterface{
+
+    public ArrayList<ChildViewInterface> mViews;
 
     public NavigationToolbar(Context context){
         super(context);
-
         setToolbarColor(Color.BLUE);
-
-
     }
 
     private void hideToolbarTitle(){
@@ -27,11 +31,23 @@ public class NavigationToolbar extends BaseToolbar{
     }
 
     @Override
+    public void addView(ChildViewInterface view) {
+        if(mViews != null){
+            mViews = new ArrayList<>();
+        }
+
+        mViews.add(view);
+    }
+
+    @Override
     public Toolbar getView() {
         this.hideToolbarTitle();
 
-        Toolbar toolbar = super.getView();
+        //TODO 아래를 분리해낼 것
         //TODO 툴바 상단 하단 마진 혹은 패딩 제거
+
+        Toolbar toolbar = super.getView();
+
         toolbar.setContentInsetsRelative(0, 0);
 
         LinearLayout layout = new LinearLayout(mContext);

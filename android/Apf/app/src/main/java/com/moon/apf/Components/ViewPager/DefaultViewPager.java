@@ -1,7 +1,6 @@
 package com.moon.apf.Components.ViewPager;
 
 import android.content.Context;
-import android.support.v4.view.ViewPager;
 
 /**
  * Created by moon on 2016. 1. 26..
