@@ -24,7 +24,6 @@ public class BaseViewPager implements BaseViewPagerInterface, ParentViewInterfac
     public ViewGroup.LayoutParams mParams;
 
     public BaseViewPager(Context context){
-
         views = new ArrayList<>();
 
         mContext = context;
@@ -34,7 +33,7 @@ public class BaseViewPager implements BaseViewPagerInterface, ParentViewInterfac
     }
 
     @Override
-    public void addPageView(ChildViewInterface view) {
+    public void addView(ChildViewInterface view) {
         views.add(view);
     }
 

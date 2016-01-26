@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.ViewGroup;
 
+import com.moon.apf.Components.ChildViewInterface;
 import com.moon.apf.Components.ParentViewInterface;
 import com.moon.apf.R;
 
@@ -42,6 +43,11 @@ public class BaseToolbar implements BaseToolbarInterface, ParentViewInterface {
     @Override
     public void setToolbarColor(int color) {
         mView.setBackgroundColor(color);
+    }
+
+    @Override
+    public void addView(ChildViewInterface view) {
+        
     }
 
     @Override

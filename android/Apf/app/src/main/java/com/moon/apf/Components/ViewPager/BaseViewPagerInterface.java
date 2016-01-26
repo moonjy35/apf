@@ -9,5 +9,5 @@ import com.moon.apf.Components.ChildViewInterface;
  * Created by moon on 2016. 1. 26..
  */
 public interface BaseViewPagerInterface {
-    void addPageView(ChildViewInterface view);
+
 }
