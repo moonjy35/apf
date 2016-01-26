@@ -33,6 +33,7 @@ public class DefaultActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
 
         //TODO 툴바가 표시되지 않음
+        //TODO 드로어는 기본으로 OFF 상태 설정해야함
 
         mLayout = new DefaultRelativeView(this);
         mToolbar = new DefaultToolbar(this, "애드투페이퍼");
