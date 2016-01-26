@@ -4,9 +4,6 @@ import android.content.Context;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.RelativeLayout;
-
-import com.moon.apf.Activity.BaseActivity;
 
 /**
  * Created by moon on 2016. 1. 26..
