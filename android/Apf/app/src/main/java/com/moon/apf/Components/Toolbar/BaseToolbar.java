@@ -46,7 +46,7 @@ public class BaseToolbar implements BaseToolbarInterface, DefaultViewInterface {
     public Toolbar getView() {
         mView.setLayoutParams(mParmas);
         mView.setMinimumHeight(46);
-        mView.setId(R.id.toolbar);
+        mView.setId(R.id.id_toolbar);
 
         return mView;
     }

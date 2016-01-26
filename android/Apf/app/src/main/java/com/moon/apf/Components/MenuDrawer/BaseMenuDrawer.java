@@ -3,9 +3,11 @@ package com.moon.apf.Components.MenuDrawer;
 import android.content.Context;
 import android.graphics.Color;
 import android.support.v4.widget.DrawerLayout;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import com.moon.apf.Components.DefaultViewInterface;
 import com.moon.apf.Components.HasChildableViewInterface;
@@ -54,7 +56,6 @@ public class BaseMenuDrawer implements BaseMenuDrawerInterface, DefaultViewInter
     @Override
     public View getView() {
         mView.setLayoutParams(mParams);
-        mView.setBackgroundColor(Color.WHITE);
 
         if(!mViews.isEmpty()){
             Iterator<DefaultViewInterface> views = mViews.iterator();

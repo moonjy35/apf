@@ -2,6 +2,7 @@ package com.moon.apf.Components.LinearView;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
@@ -25,10 +26,16 @@ public class BaseLinearView implements DefaultViewInterface, HasChildableViewInt
     public LinearLayout mView;
     public LinearLayout.LayoutParams mParams;
 
-    public BaseLinearView(Context context){
+    public BaseLinearView(Context context, int orientation){
         mContext = context;
         mView = new LinearLayout(mContext);
-        mParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+        mView.setOrientation(orientation);
+        mView.setBackgroundColor(Color.GREEN);
+        mView.setId(R.id.id_menuDrawerList);
+
+        //임시 240dp
+        mParams = new LinearLayout.LayoutParams(100, ViewGroup.LayoutParams.MATCH_PARENT);
+        mParams.gravity = Gravity.START;
     }
 
     @Override
@@ -40,7 +47,7 @@ public class BaseLinearView implements DefaultViewInterface, HasChildableViewInt
     @Override
     public View getView() {
         mView.setLayoutParams(mParams);
-        mView.setBackgroundColor(Color.WHITE);
+        mView.setBackgroundColor(Color.GREEN);
 
         if(!mViews.isEmpty()){
             Iterator<DefaultViewInterface> views = mViews.iterator();

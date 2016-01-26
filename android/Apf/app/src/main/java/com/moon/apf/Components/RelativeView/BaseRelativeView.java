@@ -32,7 +32,7 @@ public class BaseRelativeView implements BaseRelativeViewInterface, HasChildable
 
     @Override
     public void setBelow(int target) {
-        mParams.addRule(RelativeLayout.BELOW, R.id.toolbar);
+        mParams.addRule(RelativeLayout.BELOW, target);
     }
 
     @Override

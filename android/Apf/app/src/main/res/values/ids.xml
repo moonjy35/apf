@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <item name="id_menuDrawer" type="id"/>
+    <item name="id_menuDrawerList" type="id"/>
     <item name="id_toolbar" type="id"/>
     <item name="id_viewpager" type="id"/>
 </resources>
