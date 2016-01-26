@@ -81,4 +81,6 @@ public class ViewPagerActivity extends BaseActivity {
         setContentView(layout);
     }
 
+    //TODO 큐 addView 가 필요함
+
 }

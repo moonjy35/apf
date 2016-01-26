@@ -5,12 +5,13 @@ import android.graphics.Color;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
+import com.moon.apf.Components.ParentViewInterface;
 import com.moon.apf.R;
 
 /**
  * Created by moon on 2016. 1. 26..
  */
-public class BaseRelativeView implements BaseRelativeViewInterface {
+public class BaseRelativeView implements BaseRelativeViewInterface, ParentViewInterface {
     public Context mContext;
     public RelativeLayout mView;
     public RelativeLayout.LayoutParams mParams;

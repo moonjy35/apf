@@ -7,12 +7,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.ViewGroup;
 
+import com.moon.apf.Components.ParentViewInterface;
 import com.moon.apf.R;
 
 /**
  * Created by moon on 2016. 1. 26..
  */
-public class BaseToolbar implements BaseToolbarInterface {
+public class BaseToolbar implements BaseToolbarInterface, ParentViewInterface {
 
     public Context mContext;
     public Toolbar mView;

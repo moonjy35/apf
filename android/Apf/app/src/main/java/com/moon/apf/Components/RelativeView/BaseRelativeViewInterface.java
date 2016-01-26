@@ -7,6 +7,4 @@ import android.widget.RelativeLayout;
  */
 public interface BaseRelativeViewInterface {
     void setBelow(int target);
-    RelativeLayout getView();
-
 }
