@@ -27,6 +27,11 @@ public class BaseToolbar implements BaseToolbarInterface {
     }
 
     @Override
+    public void setTitle(String title) {
+        mView.setTitle(title);
+    }
+
+    @Override
     public void setAsToolbar() {
         ((AppCompatActivity)mContext).setSupportActionBar(mView);
     }

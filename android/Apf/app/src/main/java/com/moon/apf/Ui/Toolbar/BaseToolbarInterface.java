@@ -10,4 +10,5 @@ public interface BaseToolbarInterface {
     int getToolbarId();
 
     void setAsToolbar();
+    void setTitle(String title);
 }
