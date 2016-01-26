@@ -24,6 +24,8 @@ public class BaseToolbar implements BaseToolbarInterface {
 
         mView = new Toolbar(mContext);
         mParmas = new Toolbar.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+
+        this.setToolbarColor(Color.RED);
     }
 
     @Override
@@ -37,12 +39,15 @@ public class BaseToolbar implements BaseToolbarInterface {
     }
 
     @Override
+    public void setToolbarColor(int color) {
+        mView.setBackgroundColor(color);
+    }
+
+    @Override
     public Toolbar getView() {
         mView.setLayoutParams(mParmas);
         mView.setMinimumHeight(46);
         mView.setId(R.id.toolbar);
-
-        mView.setBackgroundColor(Color.RED);
 
         return mView;
     }

@@ -11,4 +11,7 @@ public interface BaseToolbarInterface {
 
     void setAsToolbar();
     void setTitle(String title);
+    void setToolbarColor(int color);
+
+
 }

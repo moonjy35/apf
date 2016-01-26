@@ -7,7 +7,9 @@ import android.widget.RelativeLayout;
 
 import com.moon.apf.Activity.DefaultActivity;
 import com.moon.apf.Ui.ContentView.DefaultContentView;
+import com.moon.apf.Ui.Toolbar.BaseToolbar;
 import com.moon.apf.Ui.Toolbar.DefaultToolbar;
+import com.moon.apf.Ui.Toolbar.NavigationToolbar;
 import com.moon.apf.Ui.WebView.DefaultWebView;
 
 
@@ -24,7 +26,8 @@ public class MainActivity extends DefaultActivity {
 
         mLayout = new DefaultContentView(this).getView();
 
-        DefaultToolbar defaultToolbar = new DefaultToolbar(this);
+//        BaseToolbar defaultToolbar = new DefaultToolbar(this);
+        BaseToolbar defaultToolbar = new NavigationToolbar(this);
         defaultToolbar.setAsToolbar();
         defaultToolbar.setTitle("yo!");
 
