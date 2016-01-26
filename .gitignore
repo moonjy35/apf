@@ -1,1 +1,7 @@
 ios/Apf/Apf.xcodeproj
+android/Apf/*.iml
+android/Apf/gradle.properties
+android/Apf/gradlew
+android/Apf/gradlew.bat
+android/Apf/gradle/
+android/Apf/.idea/
