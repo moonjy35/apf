@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+</head>
+<body>
+
+<button id="button">테스트</button>
+
+<iframe src="" frameborder="0" id="iframe" style="display: none;"></iframe>
+	
+<script src="http://code.jquery.com/jquery-2.2.0.min.js"></script>
+<script>
+(function(global){
+
+	global.changeIframeSrc = function(src){
+		document.getElementById('iframe').setAttribute('src', src);
+	}
+
+	$(document).ready(function(){
+		$('#button').on('click', function(){
+			changeIframeSrc('http://www.daum.net');
+		});
+	});
+
+})(window);
+</script>
+</body>
+</html>
