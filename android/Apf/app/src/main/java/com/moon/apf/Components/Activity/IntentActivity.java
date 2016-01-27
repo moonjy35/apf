@@ -2,12 +2,15 @@ package com.moon.apf.Components.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
+import com.moon.apf.Components.DefaultComponentInterface;
 import com.moon.apf.Components.RelativeView.BaseRelativeComponent;
 import com.moon.apf.Components.RelativeView.DefaultRelativeComponent;
 import com.moon.apf.Components.Toolbar.BaseToolbar;
 import com.moon.apf.Components.Toolbar.DefaultToolbar;
 import com.moon.apf.Components.WebView.BaseWebViewComponent;
+import com.moon.apf.LayoutInflaters.IntentLayoutInflater;
 
 /**
  * Created by moon on 2016. 1. 27..
@@ -15,12 +18,7 @@ import com.moon.apf.Components.WebView.BaseWebViewComponent;
 public class IntentActivity extends BaseActivity {
 
     private Intent mIntent;
-
-    public BaseRelativeComponent mLayout;
-    public BaseToolbar mToolbar;
-    public BaseRelativeComponent mContent;
-    public BaseWebViewComponent mWebview;
-
+    private DefaultComponentInterface mComponent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,20 +26,16 @@ public class IntentActivity extends BaseActivity {
 
         mIntent = getIntent();
 
-        String url = mIntent.getExtras().getString("url");
-        String title = mIntent.getExtras().getString("title");
+        IntentLayoutInflater inflater = new IntentLayoutInflater(this, mIntent);
+        mComponent = inflater.getComponent();
 
-        
-        mLayout = new DefaultRelativeComponent(this);
-        mToolbar = new DefaultToolbar(this, title);
-        mContent = new DefaultRelativeComponent(this);
-        mContent.setBelow(mToolbar.getToolbarId());
-
-        mWebview = new BaseWebViewComponent(this, url);
-
-        mLayout.addView(mToolbar);
-        mLayout.addView(mContent.addView(mWebview));
-
-        _ContentLayout.addView(mLayout.getView());
+        if(mComponent != null){
+            Log.d("", "INFALTE FROM INTENT INFLATER");
+            _ContentLayout.addView(mComponent.getView());
+        }
+        else
+        {
+            Log.d("", "THERE IS NO MEMORIZING LAYOUT");
+        }
     }
 }
