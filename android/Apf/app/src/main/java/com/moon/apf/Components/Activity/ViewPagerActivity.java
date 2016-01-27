@@ -7,7 +7,7 @@ import com.moon.apf.Components.RelativeView.DefaultRelativeComponent;
 import com.moon.apf.Components.Toolbar.BaseToolbar;
 import com.moon.apf.Components.Toolbar.DefaultToolbar;
 import com.moon.apf.Components.ViewPager.BaseComponentPager;
-import com.moon.apf.Components.WebView.BaseWebComponent;
+import com.moon.apf.Components.WebView.BaseWebViewComponent;
 
 /**
  * Created by moon on 2016. 1. 26..
@@ -26,11 +26,11 @@ public class ViewPagerActivity extends BaseActivity {
 
     //TODO 나중에 동적으로 추가하면 됨
     public BaseRelativeComponent mContent1;
-    public BaseWebComponent mContentWebview1;
+    public BaseWebViewComponent mContentWebview1;
     public BaseRelativeComponent mContent2;
-    public BaseWebComponent mContentWebview2;
+    public BaseWebViewComponent mContentWebview2;
     public BaseRelativeComponent mContent3;
-    public BaseWebComponent mContentWebview3;
+    public BaseWebViewComponent mContentWebview3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,13 +46,13 @@ public class ViewPagerActivity extends BaseActivity {
         mBaseViewPager = new BaseComponentPager(this);
 
         mContent1 = new DefaultRelativeComponent(this);
-        mContentWebview1 = new BaseWebComponent(this, "http://www.daum.net");
+        mContentWebview1 = new BaseWebViewComponent(this, "http://www.daum.net");
 
         mContent2 = new DefaultRelativeComponent(this);
-        mContentWebview2 = new BaseWebComponent(this, "http://www.nate.com");
+        mContentWebview2 = new BaseWebViewComponent(this, "http://www.nate.com");
 
         mContent3 = new DefaultRelativeComponent(this);
-        mContentWebview3 = new BaseWebComponent(this, "http://www.google.com");
+        mContentWebview3 = new BaseWebViewComponent(this, "http://www.google.com");
 
         mBaseViewPager.addView(mContent1.addView(mContentWebview1));
         mBaseViewPager.addView(mContent2.addView(mContentWebview2));

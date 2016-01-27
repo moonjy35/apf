@@ -1,4 +1,4 @@
-package com.moon.apf.Components.WebView;
+package com.moon.apf.Components.WebView.webview;
 
 import android.content.Context;
 import android.os.Build;
@@ -31,21 +31,6 @@ public class BaseWebView extends WebView{
         this.loadUrl("about:blank");
     }
 
-    public void initWithDefaultOptions(){
-        this.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
-        this.setWebChromeClient(new BaseWebChromeClient());
-        this.getSettings().setJavaScriptEnabled(true);
-
-        try{
-            this.getSettings().setDomStorageEnabled(true);
-        }catch (Exception e){
-
-        }
-
-        //TODO add method
-        this.addJavascriptInterface(new BaseJavascriptInterface(this), "WebApp");
-    }
-
     public void setDebugMode(){
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             WebView.setWebContentsDebuggingEnabled(true);
@@ -69,5 +54,20 @@ public class BaseWebView extends WebView{
     public void hideScrollBar(){
         this.setHorizontalScrollBarEnabled(false);
         this.setVerticalScrollBarEnabled(false);
+    }
+
+    public void initWithDefaultOptions(){
+        this.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
+        this.setWebChromeClient(new BaseWebChromeClient());
+        this.getSettings().setJavaScriptEnabled(true);
+
+        try{
+            this.getSettings().setDomStorageEnabled(true);
+        }catch (Exception e){
+
+        }
+
+        //TODO add method
+        this.addJavascriptInterface(new BaseJavascriptInterface(this), "WebApp");
     }
 }

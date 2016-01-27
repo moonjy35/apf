@@ -1,5 +1,7 @@
-package com.moon.apf.Components.WebView;
+package com.moon.apf.Components.WebView.webview;
 
+import android.util.Log;
+import android.webkit.JavascriptInterface;
 import android.webkit.WebView;
 
 /**
@@ -11,5 +13,10 @@ public class BaseJavascriptInterface {
 
     public BaseJavascriptInterface(WebView webview){
         mWebview = webview;
+    }
+
+    @JavascriptInterface
+    public void test(){
+        Log.d("FROM JS", "TEST SUCCESS");
     }
 }

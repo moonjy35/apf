@@ -3,25 +3,26 @@ package com.moon.apf.Components.WebView;
 import android.content.Context;
 import android.view.ViewGroup;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
 
 import com.moon.apf.Components.DefaultComponentInterface;
+import com.moon.apf.Components.WebView.webview.BaseWebView;
 
 /**
  * Created by moon on 2016. 1. 26..
  */
-public class BaseWebComponent implements BaseWebViewInterface, DefaultComponentInterface {
+public class BaseWebViewComponent implements BaseWebViewInterface, DefaultComponentInterface {
 
     public Context mContext;
-    public WebView mWebView;
+    public BaseWebView mWebView;
     public String mUrl;
 
-    public BaseWebComponent(Context context, String url){
+    public BaseWebViewComponent(Context context, String url){
         mContext = context;
         mUrl = url;
-        mWebView = new WebView(mContext);
+        mWebView = new BaseWebView(mContext);
         mWebView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-        mWebView.setWebViewClient(new WebViewClient());
+        mWebView.initWithDefaultOptions();
+//        mWebView.setWebViewClient(new WebViewClient());
     }
 
     public void loadUrl(String url){

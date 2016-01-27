@@ -1,13 +1,13 @@
 package com.moon.apf.Components.Activity;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import com.moon.apf.Components.RelativeView.BaseRelativeComponent;
 import com.moon.apf.Components.RelativeView.DefaultRelativeComponent;
 import com.moon.apf.Components.Toolbar.BaseToolbar;
 import com.moon.apf.Components.Toolbar.DefaultToolbar;
-import com.moon.apf.Components.WebView.BaseWebComponent;
-import com.moon.apf.Components.WebView.DefaultWebComponent;
+import com.moon.apf.Components.WebView.BaseWebViewComponent;
 
 /**
  * Created by moon on 2016. 1. 26..
@@ -17,7 +17,7 @@ public class DefaultActivity extends BaseActivity {
     public BaseRelativeComponent mLayout;
     public BaseToolbar mToolbar;
     public BaseRelativeComponent mContent;
-    public BaseWebComponent mWebview;
+    public BaseWebViewComponent mWebview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +31,7 @@ public class DefaultActivity extends BaseActivity {
         mContent = new DefaultRelativeComponent(this);
         mContent.setBelow(mToolbar.getToolbarId());
 
-        mWebview = new DefaultWebComponent(this, "http://www.naver.com");
+        mWebview = new BaseWebViewComponent(this, "http://10.10.10.235:6871/?123");
 
         mLayout.addView(mToolbar);
         mLayout.addView(mContent.addView(mWebview));
