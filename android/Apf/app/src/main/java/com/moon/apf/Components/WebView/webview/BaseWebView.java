@@ -11,8 +11,13 @@ import android.webkit.WebView;
  * Created by moon on 2016. 1. 27..
  */
 public class BaseWebView extends WebView{
+    private Context mContext;
 
-    public BaseWebView(Context context) { super(context); }
+    public BaseWebView(Context context) {
+        super(context);
+        mContext = context;
+    }
+
     public BaseWebView(Context context, AttributeSet attrs) { super(context, attrs); }
     public BaseWebView(Context context, AttributeSet attrs, int defStyleAttr) { super(context, attrs, defStyleAttr); }
 
@@ -67,7 +72,7 @@ public class BaseWebView extends WebView{
 
         }
 
-        //TODO add method
-        this.addJavascriptInterface(new BaseJavascriptInterface(this), "WebApp");
+        //mContext는 액티비티의 컨텍스트
+        this.addJavascriptInterface(new BaseJavascriptInterface(mContext, this), "WebApp");
     }
 }
