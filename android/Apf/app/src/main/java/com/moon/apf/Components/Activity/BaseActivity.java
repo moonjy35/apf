@@ -24,7 +24,7 @@ public class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         //TODO 액티비티가 요동칠때의 컨텍스트 유지에 대하여
-        ApfApplication.setCurrentActivityContext(this);
+//        ApfApplication.setCurrentActivityContext(this);
 
         setContentView(R.layout.activity_drawer);
 
