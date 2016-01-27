@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ScrollView;
 
 import com.moon.apf.Components.DefaultComponentInterface;
-import com.moon.apf.Components.HasChildableComponentInterface;
+import com.moon.apf.Components.ContainableComponentInterface;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -15,7 +15,7 @@ import java.util.Iterator;
 /**
  * Created by moon on 2016. 1. 26..
  */
-public class BaseScrollComponent implements BaseScrollViewInterface, DefaultComponentInterface, HasChildableComponentInterface {
+public class BaseScrollComponent implements BaseScrollViewInterface, DefaultComponentInterface, ContainableComponentInterface {
 
     public Context mContext;
     public ArrayList<DefaultComponentInterface> mViews = new ArrayList<>();

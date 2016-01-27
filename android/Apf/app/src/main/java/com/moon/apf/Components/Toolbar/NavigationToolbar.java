@@ -10,14 +10,14 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.moon.apf.Components.DefaultComponentInterface;
-import com.moon.apf.Components.HasChildableComponentInterface;
+import com.moon.apf.Components.ContainableComponentInterface;
 
 import java.util.ArrayList;
 
 /**
  * Created by moon on 2016. 1. 26..
  */
-public class NavigationToolbar extends BaseToolbar implements HasChildableComponentInterface {
+public class NavigationToolbar extends BaseToolbar implements ContainableComponentInterface {
 
     public ArrayList<DefaultComponentInterface> mViews;
 

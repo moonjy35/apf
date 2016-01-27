@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.moon.apf.Components.DefaultComponentInterface;
-import com.moon.apf.Components.HasChildableComponentInterface;
+import com.moon.apf.Components.ContainableComponentInterface;
 import com.moon.apf.R;
 
 import java.util.ArrayList;
@@ -15,7 +15,7 @@ import java.util.Iterator;
 /**
  * Created by moon on 2016. 1. 26..
  */
-public class BaseMenuDrawer implements BaseMenuDrawerInterface, DefaultComponentInterface, HasChildableComponentInterface {
+public class BaseMenuDrawer implements BaseMenuDrawerInterface, DefaultComponentInterface, ContainableComponentInterface {
 
     public Context mContext;
     public ArrayList<DefaultComponentInterface> mViews = new ArrayList<>();

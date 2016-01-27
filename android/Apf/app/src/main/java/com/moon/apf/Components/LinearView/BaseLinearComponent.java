@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.moon.apf.Components.DefaultComponentInterface;
-import com.moon.apf.Components.HasChildableComponentInterface;
+import com.moon.apf.Components.ContainableComponentInterface;
 import com.moon.apf.R;
 
 import java.util.ArrayList;
@@ -17,7 +17,7 @@ import java.util.Iterator;
 /**
  * Created by moon on 2016. 1. 26..
  */
-public class BaseLinearComponent implements DefaultComponentInterface, HasChildableComponentInterface {
+public class BaseLinearComponent implements DefaultComponentInterface, ContainableComponentInterface {
 
     public Context mContext;
     public ArrayList<DefaultComponentInterface> mViews = new ArrayList<>();
