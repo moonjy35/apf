@@ -36,4 +36,9 @@ public class BaseJavascriptInterface {
 
         mActicityContext.startActivity(intent);
     }
+
+    @JavascriptInterface
+    public void memorizeLayout(String jsonStringifiedLayout){
+        Log.d("LAYOUT", jsonStringifiedLayout);
+    }
 }

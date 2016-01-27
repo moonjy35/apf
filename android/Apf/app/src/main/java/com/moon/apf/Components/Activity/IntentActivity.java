@@ -5,11 +5,6 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.moon.apf.Components.DefaultComponentInterface;
-import com.moon.apf.Components.RelativeView.BaseRelativeComponent;
-import com.moon.apf.Components.RelativeView.DefaultRelativeComponent;
-import com.moon.apf.Components.Toolbar.BaseToolbar;
-import com.moon.apf.Components.Toolbar.DefaultToolbar;
-import com.moon.apf.Components.WebView.BaseWebViewComponent;
 import com.moon.apf.LayoutInflaters.IntentLayoutInflater;
 
 /**
