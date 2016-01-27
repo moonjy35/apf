@@ -14,17 +14,19 @@ public class BaseActivity extends AppCompatActivity {
 
     public DrawerLayout _DrawerLayout;
     public RelativeLayout _ContentLayout;
-    public RelativeLayout _MenuLayout;
+    public RelativeLayout _MenuLayoutLeft;
+    public RelativeLayout _MenuLayoutRight;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_default);
+        setContentView(R.layout.activity_drawer);
 
         _DrawerLayout = (DrawerLayout)findViewById(R.id.drawerLayout);
         _ContentLayout = (RelativeLayout)findViewById(R.id.contentLayout);
-        _MenuLayout = (RelativeLayout)findViewById(R.id.menuLayout);
+        _MenuLayoutLeft = (RelativeLayout)findViewById(R.id.menuLayoutLeft);
+        _MenuLayoutRight = (RelativeLayout)findViewById(R.id.menuLayoutRight);
     }
 }

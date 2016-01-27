@@ -7,8 +7,8 @@ import com.moon.apf.Components.Activity.DrawerActivity;
 import com.moon.apf.Components.Activity.ViewPagerActivity;
 
 
-public class MainActivity extends DefaultActivity {
-//public class MainActivity extends DrawerActivity {
+//public class MainActivity extends DefaultActivity {
+public class MainActivity extends DrawerActivity {
 //public class MainActivity extends ViewPagerActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {

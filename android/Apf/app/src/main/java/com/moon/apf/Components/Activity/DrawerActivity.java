@@ -19,8 +19,11 @@ public class DrawerActivity extends BaseActivity{
     public BaseRelativeComponent mContent;
     public BaseWebComponent mWebview;
 
-    public BaseRelativeComponent mMenuLayout;
-    public BaseWebComponent mMenuWebview;
+    public BaseRelativeComponent mMenuLayoutLeft;
+    public BaseWebComponent mMenuWebviewLeft;
+
+    public BaseRelativeComponent mMenuLayoutRight;
+    public BaseWebComponent mMenuWebviewRight;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,11 +38,14 @@ public class DrawerActivity extends BaseActivity{
         mContentLayout.addView(mToolbar);
         mContentLayout.addView(mContent.addView(mWebview));
 
+        mMenuLayoutLeft = new DefaultRelativeComponent(this);
+        mMenuWebviewLeft = new DefaultWebComponent(this, "http://www.google.com");
+
+        mMenuLayoutRight = new DefaultRelativeComponent(this);
+        mMenuWebviewRight = new DefaultWebComponent(this, "http://www.nate.com");
+
         _ContentLayout.addView(mContentLayout.getView());
-
-        mMenuLayout = new DefaultRelativeComponent(this);
-        mMenuWebview = new DefaultWebComponent(this, "http://www.google.com");
-
-        _MenuLayout.addView(mMenuLayout.addView(mMenuWebview).getView());
+        _MenuLayoutLeft.addView(mMenuLayoutLeft.addView(mMenuWebviewLeft).getView());
+        _MenuLayoutRight.addView(mMenuLayoutRight.addView(mMenuWebviewRight).getView());
     }
 }
