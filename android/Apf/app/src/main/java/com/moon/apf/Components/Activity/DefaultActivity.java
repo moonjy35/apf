@@ -31,7 +31,7 @@ public class DefaultActivity extends BaseActivity {
         mContent = new DefaultRelativeComponent(this);
         mContent.setBelow(mToolbar.getToolbarId());
 
-        mWebview = new BaseWebViewComponent(this, "http://10.10.10.235:6871/?123");
+        mWebview = new BaseWebViewComponent(this, "http://10.10.10.235:6871/?135135");
 
         mLayout.addView(mToolbar);
         mLayout.addView(mContent.addView(mWebview));

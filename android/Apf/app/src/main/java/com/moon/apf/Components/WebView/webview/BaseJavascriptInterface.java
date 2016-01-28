@@ -6,7 +6,14 @@ import android.util.Log;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebView;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import com.moon.apf.Components.Activity.IntentActivity;
+import com.moon.apf.LayoutMemorizer.DefaultLayoutMemorizer;
+
+import org.json.JSONObject;
+
 
 /**
  * Created by moon on 2016. 1. 27..
@@ -39,6 +46,7 @@ public class BaseJavascriptInterface {
 
     @JavascriptInterface
     public void memorizeLayout(String jsonStringifiedLayout){
-        Log.d("LAYOUT", jsonStringifiedLayout);
+        DefaultLayoutMemorizer memorizer = new DefaultLayoutMemorizer();
+        memorizer.setSource(jsonStringifiedLayout).memorize();
     }
 }
