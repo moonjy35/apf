@@ -8,9 +8,8 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.moon.apf.Components.DefaultComponentInterface;
 import com.moon.apf.LayoutFactory.ComponentFactory;
+import com.moon.apf.LayoutFactory.ComponentNodeList;
 import com.moon.apf.LayoutFactory.LayoutFactory;
-
-import java.util.Iterator;
 
 /**
  * Created by moon on 2016. 1. 27..
@@ -53,22 +52,24 @@ public class BaseLayoutParser implements BaseLayoutParserInterface {
 
     public void iterateLayout(JsonArray layout){
 
-        for(int i = 0; i < layout.size(); i++){
-            JsonObject ui = (JsonObject) layout.get(i);
+        for(int contianerIndex = 0; contianerIndex < layout.size(); contianerIndex++){
+            JsonObject ui = (JsonObject) layout.get(contianerIndex);
 
             DefaultComponentInterface containable = this.parseComponent(ui);
-            Log.d("COMPONENT", "CONTAINABLE : " + containable + "");
+            mLayoutFactory.addContainableComponent(new ComponentNodeList(containable));
 
             if(ui.has("contains")){
                 JsonArray child = ui.get("contains").getAsJsonArray();
 
                 for(int j = 0; j < child.size(); j++){
-                    DefaultComponentInterface chidable = this.parseComponent((JsonObject) layout.get(i));
-
-                    Log.d("COMPONENT", "CHILDABLE : " + containable + "");
+                    DefaultComponentInterface chidable = this.parseComponent((JsonObject) child.get(j));
+                    mLayoutFactory.addChildableComponent(contianerIndex, chidable);
                 }
             }
         }
+
+        //TODO 로그용
+        mLayoutFactory.toString();
     }
 
     public DefaultComponentInterface parseComponent(JsonObject componentJson){
