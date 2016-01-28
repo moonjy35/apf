@@ -17,16 +17,20 @@ import java.util.Iterator;
  */
 public class BaseScrollComponent implements BaseScrollViewInterface, DefaultComponentInterface, ContainableComponentInterface {
 
-    public Context mContext;
+    public Context mActivityContext;
     public ArrayList<DefaultComponentInterface> mViews = new ArrayList<>();
 
     public ScrollView mView;
     public ScrollView.LayoutParams mParams;
 
+    public BaseScrollComponent(){}
     public BaseScrollComponent(Context context){
-        mContext = context;
-        mView = new ScrollView(mContext);
-        mParams = new ScrollView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+        mActivityContext = context;
+    }
+
+    @Override
+    public void setContext(Context context) {
+        mActivityContext = context;
     }
 
     @Override
@@ -37,6 +41,8 @@ public class BaseScrollComponent implements BaseScrollViewInterface, DefaultComp
 
     @Override
     public ScrollView getView() {
+        mView = new ScrollView(mActivityContext);
+        mParams = new ScrollView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         mView.setLayoutParams(mParams);
         mView.setBackgroundColor(Color.WHITE);
 

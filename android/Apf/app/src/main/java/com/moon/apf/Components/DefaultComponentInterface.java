@@ -1,5 +1,6 @@
 package com.moon.apf.Components;
 
+import android.content.Context;
 import android.view.View;
 
 /**
@@ -7,4 +8,5 @@ import android.view.View;
  */
 public interface DefaultComponentInterface {
     View getView();
+    void setContext(Context context);
 }

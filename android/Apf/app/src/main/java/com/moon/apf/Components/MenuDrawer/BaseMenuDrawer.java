@@ -17,18 +17,20 @@ import java.util.Iterator;
  */
 public class BaseMenuDrawer implements BaseMenuDrawerInterface, DefaultComponentInterface, ContainableComponentInterface {
 
-    public Context mContext;
+    public Context mActivityContext;
     public ArrayList<DefaultComponentInterface> mViews = new ArrayList<>();
 
     public DrawerLayout mView;
     public DrawerLayout.LayoutParams mParams;
 
+    public BaseMenuDrawer(){}
     public BaseMenuDrawer(Context context){
-        mContext = context;
+        mActivityContext = context;
+    }
 
-        mView = new DrawerLayout(mContext);
-        mView.setId(R.id.id_menuDrawer);
-        mParams = new DrawerLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+    @Override
+    public void setContext(Context context) {
+        mActivityContext = context;
     }
 
     @Override
@@ -51,6 +53,10 @@ public class BaseMenuDrawer implements BaseMenuDrawerInterface, DefaultComponent
 
     @Override
     public View getView() {
+        mView = new DrawerLayout(mActivityContext);
+        mView.setId(R.id.id_menuDrawer);
+        mParams = new DrawerLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+
         mView.setLayoutParams(mParams);
 
         if(!mViews.isEmpty()){

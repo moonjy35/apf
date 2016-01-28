@@ -13,26 +13,33 @@ import com.moon.apf.Components.WebView.webview.BaseWebViewClient;
  */
 public class BaseWebViewComponent implements BaseWebViewInterface, DefaultComponentInterface {
 
-    public Context mContext;
+    public Context mActivityContext;
     public BaseWebView mWebView;
     public String mUrl;
 
-    public BaseWebViewComponent(Context context, String url){
-        mContext = context;
+    public BaseWebViewComponent(){}
+    public BaseWebViewComponent(String url){
         mUrl = url;
-        mWebView = new BaseWebView(mContext);
-        mWebView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-        mWebView.initWithDefaultOptions();
-        mWebView.setWebViewClient(new BaseWebViewClient());
+    }
+    public BaseWebViewComponent(Context context, String url){
+        mActivityContext = context;
+        mUrl = url;
+
     }
 
-    public void loadUrl(String url){
-        mWebView.loadUrl(url);
+    @Override
+    public void setContext(Context context) {
+        mActivityContext = context;
     }
 
     @Override
     public WebView getView() {
-        this.loadUrl(mUrl);
+        mWebView = new BaseWebView(mActivityContext);
+        mWebView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+        mWebView.initWithDefaultOptions();
+        mWebView.setWebViewClient(new BaseWebViewClient());
+        mWebView.loadUrl(mUrl);
+
         return mWebView;
     }
 }

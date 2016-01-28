@@ -27,7 +27,7 @@ public class NavigationToolbar extends BaseToolbar implements ContainableCompone
     }
 
     private void hideToolbarTitle(){
-        ((AppCompatActivity)mContext).getSupportActionBar().setDisplayShowTitleEnabled(false);
+        ((AppCompatActivity) mActivityContext).getSupportActionBar().setDisplayShowTitleEnabled(false);
     }
 
     @Override
@@ -52,7 +52,7 @@ public class NavigationToolbar extends BaseToolbar implements ContainableCompone
 
         toolbar.setContentInsetsRelative(0, 0);
 
-        LinearLayout layout = new LinearLayout(mContext);
+        LinearLayout layout = new LinearLayout(mActivityContext);
         layout.setOrientation(LinearLayout.VERTICAL);
 
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
@@ -60,7 +60,7 @@ public class NavigationToolbar extends BaseToolbar implements ContainableCompone
 
         layout.setLayoutParams(params);
 
-        TextView textView = new TextView(mContext);
+        TextView textView = new TextView(mActivityContext);
         textView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         textView.setText("타이틀 테스트");
         textView.setBackgroundColor(Color.DKGRAY);

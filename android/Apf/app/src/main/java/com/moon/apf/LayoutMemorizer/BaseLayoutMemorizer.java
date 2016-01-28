@@ -1,5 +1,7 @@
 package com.moon.apf.LayoutMemorizer;
 
+import com.moon.apf.LayoutFactory.ComponentFactory;
+import com.moon.apf.LayoutFactory.LayoutFactory;
 import com.moon.apf.LayoutParser.BaseLayoutParser;
 
 /**
@@ -19,6 +21,6 @@ public class BaseLayoutMemorizer implements BaseLayoutMemorizerInterface {
 
     @Override
     public void memorize() {
-        new BaseLayoutParser().setSource(mSource).parse();
+        new BaseLayoutParser(new LayoutFactory(), new ComponentFactory()).setSource(mSource).parse();
     }
 }

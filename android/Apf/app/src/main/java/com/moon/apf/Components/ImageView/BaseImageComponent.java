@@ -11,17 +11,23 @@ import com.moon.apf.Components.DefaultComponentInterface;
  */
 public class BaseImageComponent implements BaseImageViewInterface, DefaultComponentInterface {
 
-    public Context mContext;
+    public Context mActivityContext;
     public ImageView mView;
 
+    public BaseImageComponent() { }
     public BaseImageComponent(Context context){
-        mContext = context;
-        mView = new ImageView(mContext);
+        mActivityContext = context;
+    }
+
+    @Override
+    public void setContext(Context context) {
+        mActivityContext = context;
     }
 
     @Override
     public View getView() {
-        return null;
+        mView = new ImageView(mActivityContext);
+        return mView;
     }
 
 }

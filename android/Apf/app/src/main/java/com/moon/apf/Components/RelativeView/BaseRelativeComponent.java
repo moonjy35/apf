@@ -17,21 +17,27 @@ import java.util.Iterator;
  */
 public class BaseRelativeComponent implements BaseRelativeViewInterface, ContainableComponentInterface, DefaultComponentInterface {
 
-    public Context mContext;
+    public Context mActivityContext;
     public ArrayList<DefaultComponentInterface> mViews = new ArrayList<>();
 
     public RelativeLayout mView;
     public RelativeLayout.LayoutParams mParams;
+    public int mLayoutBelowTarget;
+
+    public BaseRelativeComponent(){}
 
     public BaseRelativeComponent(Context context){
-        mContext = context;
-        mView = new RelativeLayout(mContext);
-        mParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+        mActivityContext = context;
+    }
+
+    @Override
+    public void setContext(Context context) {
+        mActivityContext = context;
     }
 
     @Override
     public void setBelow(int target) {
-        mParams.addRule(RelativeLayout.BELOW, target);
+        mLayoutBelowTarget = target;
     }
 
     @Override
@@ -42,6 +48,9 @@ public class BaseRelativeComponent implements BaseRelativeViewInterface, Contain
 
     @Override
     public RelativeLayout getView() {
+        mView = new RelativeLayout(mActivityContext);
+        mParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+        mParams.addRule(RelativeLayout.BELOW, mLayoutBelowTarget);
         mView.setLayoutParams(mParams);
         mView.setBackgroundColor(Color.WHITE);
 

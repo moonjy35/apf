@@ -19,22 +19,25 @@ import java.util.Iterator;
  */
 public class BaseLinearComponent implements DefaultComponentInterface, ContainableComponentInterface {
 
-    public Context mContext;
+    public Context mActivityContext;
     public ArrayList<DefaultComponentInterface> mViews = new ArrayList<>();
 
     public LinearLayout mView;
+    public int mOrientation;
     public LinearLayout.LayoutParams mParams;
 
+    public BaseLinearComponent(){}
+    public BaseLinearComponent(int orientation){
+        mOrientation = orientation;
+    }
     public BaseLinearComponent(Context context, int orientation){
-        mContext = context;
-        mView = new LinearLayout(mContext);
-        mView.setOrientation(orientation);
-        mView.setBackgroundColor(Color.GREEN);
-        mView.setId(R.id.id_menuDrawerList);
+        mActivityContext = context;
+        mOrientation = orientation;
+    }
 
-        //임시 240dp
-        mParams = new LinearLayout.LayoutParams(100, ViewGroup.LayoutParams.MATCH_PARENT);
-        mParams.gravity = Gravity.START;
+    @Override
+    public void setContext(Context context) {
+        mActivityContext = context;
     }
 
     @Override
@@ -45,6 +48,15 @@ public class BaseLinearComponent implements DefaultComponentInterface, Containab
 
     @Override
     public View getView() {
+        mView = new LinearLayout(mActivityContext);
+        mView.setOrientation(mOrientation);
+        mView.setBackgroundColor(Color.GREEN);
+        mView.setId(R.id.id_menuDrawerList);
+
+        //임시 240dp
+        mParams = new LinearLayout.LayoutParams(100, ViewGroup.LayoutParams.MATCH_PARENT);
+        mParams.gravity = Gravity.START;
+
         mView.setLayoutParams(mParams);
         mView.setBackgroundColor(Color.GREEN);
 

@@ -1,20 +1,16 @@
 package com.moon.apf.LayoutParser;
 
-import android.content.Context;
 import android.util.Log;
 
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import com.moon.apf.ComponentFactory.ComponentSource;
+import com.moon.apf.Components.DefaultComponentInterface;
+import com.moon.apf.LayoutFactory.ComponentFactory;
+import com.moon.apf.LayoutFactory.LayoutFactory;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
-import java.util.StringTokenizer;
 
 /**
  * Created by moon on 2016. 1. 27..
@@ -22,9 +18,12 @@ import java.util.StringTokenizer;
 public class BaseLayoutParser implements BaseLayoutParserInterface {
 
     private String mSource;
+    private LayoutFactory mLayoutFactory;
+    private ComponentFactory mComponentFactory;
 
-    public BaseLayoutParser(){
-
+    public BaseLayoutParser(LayoutFactory layoutFactory, ComponentFactory componentFactory){
+        mLayoutFactory = layoutFactory;
+        mComponentFactory = componentFactory;
     }
 
     public BaseLayoutParserInterface setSource(String source) {
@@ -73,11 +72,9 @@ public class BaseLayoutParser implements BaseLayoutParserInterface {
         }
     }
 
-    public void parseComponent(JsonObject componentJson){
-        String component = componentJson.get("component").getAsString();
-        String type = componentJson.get("type").getAsString();
-        String title = componentJson.get("title").getAsString();
+    public DefaultComponentInterface parseComponent(JsonObject componentJson){
+        DefaultComponentInterface component = mComponentFactory.get(componentJson);
 
-        new ComponentSource(componentJson).get();
+        return component;
     }
 }

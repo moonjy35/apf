@@ -17,17 +17,20 @@ import java.util.Iterator;
  */
 public class BaseComponentPager implements BaseViewPagerInterface, ContainableComponentInterface, DefaultComponentInterface {
 
-    public Context mContext;
+    public Context mActivityContext;
     public ArrayList<DefaultComponentInterface> mViews = new ArrayList<>();
 
     public ViewPager mView;
     public ViewGroup.LayoutParams mParams;
 
+    public BaseComponentPager(){}
     public BaseComponentPager(Context context){
-        mContext = context;
-        mView = new ViewPager(mContext);
-        mView.setId(R.id.id_viewpager);
-        mParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+        mActivityContext = context;
+    }
+
+    @Override
+    public void setContext(Context context) {
+        mActivityContext = context;
     }
 
     @Override
@@ -44,6 +47,10 @@ public class BaseComponentPager implements BaseViewPagerInterface, ContainableCo
 
     @Override
     public ViewPager getView() {
+        mView = new ViewPager(mActivityContext);
+        mView.setId(R.id.id_viewpager);
+        mParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+
         if(!mViews.isEmpty()){
             Iterator<DefaultComponentInterface> views = mViews.iterator();
             while(views.hasNext()){
