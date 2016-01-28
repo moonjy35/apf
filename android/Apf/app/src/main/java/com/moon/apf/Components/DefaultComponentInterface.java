@@ -8,5 +8,4 @@ import android.view.View;
  */
 public interface DefaultComponentInterface {
     View getView();
-    void setContext(Context context);
 }

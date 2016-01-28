@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
+import com.moon.apf.Components.BaseComponent;
 import com.moon.apf.Components.ContainableComponentInterface;
 import com.moon.apf.Components.DefaultComponentInterface;
 
@@ -15,24 +16,18 @@ import java.util.Iterator;
 /**
  * Created by moon on 2016. 1. 26..
  */
-public class BaseRelativeComponent implements BaseRelativeViewInterface, ContainableComponentInterface, DefaultComponentInterface {
+public class BaseRelativeComponent extends BaseComponent implements BaseRelativeViewInterface, ContainableComponentInterface, DefaultComponentInterface {
 
-    public Context mActivityContext;
     public ArrayList<DefaultComponentInterface> mViews = new ArrayList<>();
 
     public RelativeLayout mView;
     public RelativeLayout.LayoutParams mParams;
     public int mLayoutBelowTarget;
 
-    public BaseRelativeComponent(){}
+    public BaseRelativeComponent(){ super(); }
 
-    public BaseRelativeComponent(Context context){
-        mActivityContext = context;
-    }
-
-    @Override
-    public void setContext(Context context) {
-        mActivityContext = context;
+    public BaseRelativeComponent(Context activityContext){
+        super(activityContext);
     }
 
     @Override
@@ -48,7 +43,7 @@ public class BaseRelativeComponent implements BaseRelativeViewInterface, Contain
 
     @Override
     public RelativeLayout getView() {
-        mView = new RelativeLayout(mActivityContext);
+        mView = new RelativeLayout(_mActivityContext);
         mParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         mParams.addRule(RelativeLayout.BELOW, mLayoutBelowTarget);
         mView.setLayoutParams(mParams);

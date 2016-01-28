@@ -7,29 +7,23 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.ViewGroup;
 
+import com.moon.apf.Components.BaseComponent;
 import com.moon.apf.Components.DefaultComponentInterface;
 import com.moon.apf.R;
 
 /**
  * Created by moon on 2016. 1. 26..
  */
-public class BaseToolbar implements BaseToolbarInterface, DefaultComponentInterface {
-
-    public Context mActivityContext;
+public class BaseToolbar extends BaseComponent implements BaseToolbarInterface, DefaultComponentInterface {
 
     public Toolbar mView;
     public Toolbar.LayoutParams mParmas;
 
     public String mTitle;
 
-    public BaseToolbar(){}
-    public BaseToolbar(Context context){
-        mActivityContext = context;
-    }
-
-    @Override
-    public void setContext(Context context) {
-        mActivityContext = context;
+    public BaseToolbar(){ super(); }
+    public BaseToolbar(Context activityContext){
+        super(activityContext);
     }
 
     @Override
@@ -44,12 +38,12 @@ public class BaseToolbar implements BaseToolbarInterface, DefaultComponentInterf
 
     @Override
     public Toolbar getView() {
-        mView = new Toolbar(mActivityContext);
+        mView = new Toolbar(_mActivityContext);
         mParmas = new Toolbar.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 
         this.setToolbarColor(Color.RED);
 
-        ((AppCompatActivity) mActivityContext).setSupportActionBar(mView);
+        ((AppCompatActivity) _mActivityContext).setSupportActionBar(mView);
 
         mView.setLayoutParams(mParmas);
         mView.setMinimumHeight(46);

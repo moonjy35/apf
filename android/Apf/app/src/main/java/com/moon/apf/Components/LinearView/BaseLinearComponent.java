@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import com.moon.apf.Components.BaseComponent;
 import com.moon.apf.Components.DefaultComponentInterface;
 import com.moon.apf.Components.ContainableComponentInterface;
 import com.moon.apf.R;
@@ -17,27 +18,22 @@ import java.util.Iterator;
 /**
  * Created by moon on 2016. 1. 26..
  */
-public class BaseLinearComponent implements DefaultComponentInterface, ContainableComponentInterface {
+public class BaseLinearComponent extends BaseComponent implements DefaultComponentInterface, ContainableComponentInterface {
 
-    public Context mActivityContext;
     public ArrayList<DefaultComponentInterface> mViews = new ArrayList<>();
 
     public LinearLayout mView;
     public int mOrientation;
     public LinearLayout.LayoutParams mParams;
 
-    public BaseLinearComponent(){}
-    public BaseLinearComponent(int orientation){
-        mOrientation = orientation;
-    }
-    public BaseLinearComponent(Context context, int orientation){
-        mActivityContext = context;
+    public BaseLinearComponent(){ super(); }
+    public BaseLinearComponent(Context activityContext, int orientation){
+        super(activityContext);
         mOrientation = orientation;
     }
 
-    @Override
-    public void setContext(Context context) {
-        mActivityContext = context;
+    public void setOrientation(int orientation){
+        mOrientation = orientation;
     }
 
     @Override
@@ -48,7 +44,7 @@ public class BaseLinearComponent implements DefaultComponentInterface, Containab
 
     @Override
     public View getView() {
-        mView = new LinearLayout(mActivityContext);
+        mView = new LinearLayout(_mActivityContext);
         mView.setOrientation(mOrientation);
         mView.setBackgroundColor(Color.GREEN);
         mView.setId(R.id.id_menuDrawerList);

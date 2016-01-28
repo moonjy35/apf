@@ -10,7 +10,7 @@ public class DefaultWebViewComponent extends BaseWebViewComponent {
     public DefaultWebViewComponent(String url){
         super(url);
     }
-    public DefaultWebViewComponent(Context context, String url){
-        super(context, url);
+    public DefaultWebViewComponent(Context activityContext, String url){
+        super(activityContext, url);
     }
 }

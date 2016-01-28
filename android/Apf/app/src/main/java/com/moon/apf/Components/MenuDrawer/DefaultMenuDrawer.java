@@ -8,7 +8,7 @@ import android.content.Context;
 public class DefaultMenuDrawer extends BaseMenuDrawer{
 
     public DefaultMenuDrawer() { super(); }
-    public DefaultMenuDrawer(Context context){
-        super(context);
+    public DefaultMenuDrawer(Context activityContext){
+        super(activityContext);
     }
 }

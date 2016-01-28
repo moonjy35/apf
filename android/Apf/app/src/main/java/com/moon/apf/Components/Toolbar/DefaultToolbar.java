@@ -10,8 +10,8 @@ public class DefaultToolbar extends BaseToolbar {
     public DefaultToolbar(){
         super();
     }
-    public DefaultToolbar(Context context, String title){
-        super(context);
+    public DefaultToolbar(Context activityContext, String title){
+        super(activityContext);
         setTitle(title);
     }
 }

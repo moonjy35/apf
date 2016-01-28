@@ -7,7 +7,7 @@ import android.content.Context;
  */
 public class DefaultComponentPager extends BaseComponentPager {
 
-    public DefaultComponentPager(Context context){
-        super(context);
+    public DefaultComponentPager(Context activityContext){
+        super(activityContext);
     }
 }

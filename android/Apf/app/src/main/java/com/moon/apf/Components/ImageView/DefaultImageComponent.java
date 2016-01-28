@@ -7,7 +7,7 @@ import android.content.Context;
  */
 public class DefaultImageComponent extends BaseImageComponent {
 
-    public DefaultImageComponent(Context context){
-        super(context);
+    public DefaultImageComponent(Context activityContext){
+        super(activityContext);
     }
 }

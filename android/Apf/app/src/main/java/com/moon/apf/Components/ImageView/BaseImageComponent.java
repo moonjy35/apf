@@ -4,30 +4,26 @@ import android.content.Context;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.moon.apf.Components.BaseComponent;
 import com.moon.apf.Components.DefaultComponentInterface;
 
 /**
  * Created by moon on 2016. 1. 26..
  */
-public class BaseImageComponent implements BaseImageViewInterface, DefaultComponentInterface {
+public class BaseImageComponent extends BaseComponent implements BaseImageViewInterface, DefaultComponentInterface {
 
-    public Context mActivityContext;
     public ImageView mView;
 
-    public BaseImageComponent() { }
-    public BaseImageComponent(Context context){
-        mActivityContext = context;
+    public BaseImageComponent() {
+        super();
     }
-
-    @Override
-    public void setContext(Context context) {
-        mActivityContext = context;
+    public BaseImageComponent(Context activityContext){
+        super(activityContext);
     }
 
     @Override
     public View getView() {
-        mView = new ImageView(mActivityContext);
+        mView = new ImageView(_mActivityContext);
         return mView;
     }
-
 }

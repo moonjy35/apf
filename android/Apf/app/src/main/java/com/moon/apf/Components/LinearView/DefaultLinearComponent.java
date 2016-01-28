@@ -7,7 +7,7 @@ import android.content.Context;
  */
 public class DefaultLinearComponent extends BaseLinearComponent {
 
-    public DefaultLinearComponent(Context context, int orientation){
-        super(context, orientation);
+    public DefaultLinearComponent(Context activityContext, int orientation){
+        super(activityContext, orientation);
     }
 }

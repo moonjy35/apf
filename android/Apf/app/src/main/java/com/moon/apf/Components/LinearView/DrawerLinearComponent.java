@@ -7,11 +7,7 @@ import android.content.Context;
  */
 public class DrawerLinearComponent extends BaseLinearComponent {
 
-    public DrawerLinearComponent(Context context, int orientation) {
-
-        super(context, orientation);
-
-
-
+    public DrawerLinearComponent(Context activityContext, int orientation) {
+        super(activityContext, orientation);
     }
 }

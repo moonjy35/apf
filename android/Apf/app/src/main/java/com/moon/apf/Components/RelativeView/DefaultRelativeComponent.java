@@ -8,7 +8,7 @@ import android.content.Context;
 public class DefaultRelativeComponent extends BaseRelativeComponent {
 
     public DefaultRelativeComponent(){ super(); }
-    public DefaultRelativeComponent(Context context){
-        super(context);
+    public DefaultRelativeComponent(Context activityContext){
+        super(activityContext);
     }
 }

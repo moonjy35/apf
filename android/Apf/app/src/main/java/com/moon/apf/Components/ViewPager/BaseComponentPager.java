@@ -5,6 +5,7 @@ import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.moon.apf.Components.BaseComponent;
 import com.moon.apf.Components.DefaultComponentInterface;
 import com.moon.apf.Components.ContainableComponentInterface;
 import com.moon.apf.R;
@@ -15,22 +16,16 @@ import java.util.Iterator;
 /**
  * Created by moon on 2016. 1. 26..
  */
-public class BaseComponentPager implements BaseViewPagerInterface, ContainableComponentInterface, DefaultComponentInterface {
+public class BaseComponentPager extends BaseComponent implements BaseViewPagerInterface, ContainableComponentInterface, DefaultComponentInterface {
 
-    public Context mActivityContext;
     public ArrayList<DefaultComponentInterface> mViews = new ArrayList<>();
 
     public ViewPager mView;
     public ViewGroup.LayoutParams mParams;
 
-    public BaseComponentPager(){}
-    public BaseComponentPager(Context context){
-        mActivityContext = context;
-    }
-
-    @Override
-    public void setContext(Context context) {
-        mActivityContext = context;
+    public BaseComponentPager(){super();}
+    public BaseComponentPager(Context activityContext){
+        super(activityContext);
     }
 
     @Override
@@ -47,7 +42,7 @@ public class BaseComponentPager implements BaseViewPagerInterface, ContainableCo
 
     @Override
     public ViewPager getView() {
-        mView = new ViewPager(mActivityContext);
+        mView = new ViewPager(_mActivityContext);
         mView.setId(R.id.id_viewpager);
         mParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
 
