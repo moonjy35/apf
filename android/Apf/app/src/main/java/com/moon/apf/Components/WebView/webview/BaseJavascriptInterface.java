@@ -1,7 +1,9 @@
 package com.moon.apf.Components.WebView.webview;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Looper;
 import android.util.Log;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebView;
@@ -46,11 +48,11 @@ public class BaseJavascriptInterface {
 
     @JavascriptInterface
     public void memorizeLayout(final String jsonStringifiedLayout){
-        new Thread(new Runnable() {
+        ((Activity) mActicityContext).runOnUiThread(new Runnable() {
             @Override
             public void run() {
                 new DefaultLayoutMemorizer().setSource(jsonStringifiedLayout).memorize();
             }
-        }).start();
+        });
     }
 }
