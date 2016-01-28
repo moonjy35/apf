@@ -36,10 +36,8 @@ public class BaseLayoutParser implements BaseLayoutParserInterface {
         JsonArray json = new JsonParser().parse(mSource).getAsJsonArray();
         Log.d("MEMORIZER", json + "");
 
-        //소스 순회
-        Iterator<?> jsonIterator = json.iterator();
-        while(jsonIterator.hasNext()){
-            JsonObject element = (JsonObject) jsonIterator.next();
+        for(int i = 0; i < json.size(); i++){
+            JsonObject element = (JsonObject)json.get(i);
 
             String id = element.get("id").getAsString();
             int version = element.get("version").getAsInt();
@@ -54,19 +52,20 @@ public class BaseLayoutParser implements BaseLayoutParserInterface {
     }
 
     public void iterateLayout(JsonArray layout){
-        //소스 - 레이아웃 순회
-        Iterator<?> layoutIterator = layout.iterator();
-        while(layoutIterator.hasNext()){
-            JsonObject ui = (JsonObject) layoutIterator.next();
 
-            this.parseComponent(ui);
+        for(int i = 0; i < layout.size(); i++){
+            JsonObject ui = (JsonObject) layout.get(i);
+
+            DefaultComponentInterface containable = this.parseComponent(ui);
+            Log.d("COMPONENT", "CONTAINABLE : " + containable + "");
 
             if(ui.has("contains")){
                 JsonArray child = ui.get("contains").getAsJsonArray();
 
-                Iterator<?> childIterator = child.iterator();
-                while(childIterator.hasNext()){
-                    this.parseComponent((JsonObject)childIterator.next());
+                for(int j = 0; j < child.size(); j++){
+                    DefaultComponentInterface chidable = this.parseComponent((JsonObject) layout.get(i));
+
+                    Log.d("COMPONENT", "CHILDABLE : " + containable + "");
                 }
             }
         }
@@ -74,7 +73,6 @@ public class BaseLayoutParser implements BaseLayoutParserInterface {
 
     public DefaultComponentInterface parseComponent(JsonObject componentJson){
         DefaultComponentInterface component = mComponentFactory.get(componentJson);
-
         return component;
     }
 }

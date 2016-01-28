@@ -24,10 +24,6 @@ public class ComponentFactory {
         String type = source.get("type").getAsString();
         String title = source.get("title").getAsString();
 
-        Log.d("COMPONENT SOURCE", component + "");
-        Log.d("COMPONENT SOURCE", type + "");
-        Log.d("COMPONENT SOURCE", title + "");
-
         //TODO 아래를 효과적으로 생성하려면?
         //리플렉션을 사용할 수 있도록 클래스명 등을 수정해볼 것
 
@@ -42,16 +38,6 @@ public class ComponentFactory {
         if(component.equalsIgnoreCase("webview")){
             componentInterface = new DefaultWebViewComponent(source.get("url").getAsString());
         }
-
-//        01-28 01:50:22.477  20521-20534/com.moon.apf D/COMPONENT SOURCE﹕ relativeLayout
-//        01-28 01:50:22.477  20521-20534/com.moon.apf D/COMPONENT SOURCE﹕ default
-//        01-28 01:50:22.477  20521-20534/com.moon.apf D/COMPONENT SOURCE﹕ 레이아웃
-//        01-28 01:50:22.477  20521-20534/com.moon.apf D/COMPONENT SOURCE﹕ toolbar
-//        01-28 01:50:22.477  20521-20534/com.moon.apf D/COMPONENT SOURCE﹕ default
-//        01-28 01:50:22.477  20521-20534/com.moon.apf D/COMPONENT SOURCE﹕ 툴바 타이틀
-//        01-28 01:50:22.477  20521-20534/com.moon.apf D/COMPONENT SOURCE﹕ webview
-//        01-28 01:50:22.477  20521-20534/com.moon.apf D/COMPONENT SOURCE﹕ default
-//        01-28 01:50:22.477  20521-20534/com.moon.apf D/COMPONENT SOURCE﹕ 웹뷰 타이틀
 
         return componentInterface;
     }
