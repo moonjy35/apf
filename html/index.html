@@ -41,21 +41,28 @@
 						}
 					]
 				},
-				{
+				{	
 					'component' : 'relativeLayout',
 					'type' : 'default',
 					'title' : '2222 레이아웃',
 					'contains' : [
-						{ 
-							'component' : 'toolbar',
-							'type' : 'default',
-							'title' : '22222 툴바 타이틀'
-						},
 						{
-							'component' : 'webview',
+							'component' : 'relativeLayout',
 							'type' : 'default',
-							'title' : '2222 웹뷰 타이틀',
-							'url' : 'http://www.google.com'
+							'title' : '333 레이아웃',
+							'contains' : [
+								{ 
+									'component' : 'toolbar',
+									'type' : 'default',
+									'title' : '22222 툴바 타이틀'
+								},
+								{
+									'component' : 'webview',
+									'type' : 'default',
+									'title' : '2222 웹뷰 타이틀',
+									'url' : 'http://www.nate.com'
+								}
+							]
 						}
 					]
 				},

@@ -67,16 +67,24 @@ public class BaseLayoutParser implements BaseLayoutParserInterface {
         }
     }
 
+
+    
+    //TODO contains 가 contains 를 포함할 겨웅 어떻게 되어야 하는가
+    //TODO index 등을 유지하면서 이 부분이 다시 짜여야함
     public LayoutFactory parseLayoutIterator(JsonArray layout){
 
         for(int contianerIndex = 0; contianerIndex < layout.size(); contianerIndex++){
             JsonObject ui = (JsonObject) layout.get(contianerIndex);
+
+            Log.d("UI", ui + "");
 
             DefaultComponentInterface containable = this.parseComponent(ui);
             mLayoutFactory.addContainableComponent(new ComponentNodeList(containable));
 
             if(ui.has("contains")){
                 JsonArray child = ui.get("contains").getAsJsonArray();
+
+                Log.d("UI", child + "");
 
                 for(int j = 0; j < child.size(); j++){
                     DefaultComponentInterface chidable = this.parseComponent((JsonObject) child.get(j));
