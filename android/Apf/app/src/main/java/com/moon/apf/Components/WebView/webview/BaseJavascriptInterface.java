@@ -45,8 +45,12 @@ public class BaseJavascriptInterface {
     }
 
     @JavascriptInterface
-    public void memorizeLayout(String jsonStringifiedLayout){
-        DefaultLayoutMemorizer memorizer = new DefaultLayoutMemorizer();
-        memorizer.setSource(jsonStringifiedLayout).memorize();
+    public void memorizeLayout(final String jsonStringifiedLayout){
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                new DefaultLayoutMemorizer().setSource(jsonStringifiedLayout).memorize();
+            }
+        }).start();
     }
 }
